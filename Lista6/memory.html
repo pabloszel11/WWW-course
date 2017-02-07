@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<title>Memory</title>
+
+	<style>
+		.container
+		{
+			width: 600px;
+			margin: auto;
+		}
+		.card
+		{
+			float: left;
+			margin: 15px;
+			width: 100px;
+			height: 100px;
+			background-image: url("nba.gif");
+			box-shadow: 10px 10px 10px 10px #ccc;
+		}
+	</style>
+
+	<script>
+		$(document).ready(function()
+		{
+			var app = {
+				cards: [0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7],
+				init: function()
+				{
+					app.shuffleCards();
+				},
+				shuffleCards: function()
+				{
+					var temp = 0;
+					var random = 0;
+					for(i = 0; i < app.cards.length; i++)
+					{
+						random = Math.round(Math.random() * i);
+						temp = app.cards[i];
+						app.cards[i] = app.cards[random];
+						app.cards[random] = temp;
+					}
+					app.assignImages();
+				},
+				assignImages: function()
+				{
+					$(".card").each(function(index)
+					{
+						$(this).attr("data-card-value",app.cards[index]);
+					});
+					$(".card").each(function()
+					{
+						switch($(this).data("cardValue"))
+						{
+							case 0:
+								$(this).attr("data-src","bulls.jpg");
+								break;
+							case 1:
+								$(this).attr("data-src","celtics.jpg");
+								break;
+							case 2:
+								$(this).attr("data-src","dallas.png");
+								break;
+							case 3:
+								$(this).attr("data-src","gsw.jpg");
+								break;
+							case 4:
+								$(this).attr("data-src","hornets.jpg");
+								break;
+							case 5:
+								$(this).attr("data-src","lakers.png");
+								break;
+							case 6:
+								$(this).attr("data-src","okc.png");
+								break;
+							case 7:
+								$(this).attr("data-src","raptors.jpg");
+								break;
+						}
+					});
+					app.clickHandler();
+				},
+				clickHandler: function()
+				{
+					$(".card").on("click", function()
+					{
+						$(this).html("<img src=" + $(this).data("src") + ">").addClass("isSelected");
+						app.checkMatch();
+					});
+				},
+				checkMatch: function()
+				{
+					if($(".isSelected").length == 2)
+					{
+						if($(".isSelected").first().data("cardValue") == $(".isSelected").last().data("cardValue"))
+						{
+							$(".isSelected").each(function()
+							{
+								$(this).animate({opacity: 0});
+							});
+							$(".isSelected").each(function()
+							{
+								$(this).removeClass("isSelected");
+							});
+						}
+						else
+						{
+							setTimeout(function()
+							{
+								$(".isSelected").each(function()
+								{
+									$(this).html("").removeClass("isSelected");
+								})
+							},1000);
+						}
+					}
+				}
+			};
+			app.init();
+		});
+	</script>
+</head>
+<body>
+	<div class = "container">
+		<div class = "card"></div>
+		<div class = "card"></div>
+		<div class = "card"></div>
+		<div class = "card"></div>
+		<div class = "card"></div>
+		<div class = "card"></div>
+		<div class = "card"></div>
+		<div class = "card"></div>
+		<div class = "card"></div>
+		<div class = "card"></div>
+		<div class = "card"></div>
+		<div class = "card"></div>
+		<div class = "card"></div>
+		<div class = "card"></div>
+		<div class = "card"></div>
+		<div class = "card"></div>
+	</div>
+</body>
+</html>

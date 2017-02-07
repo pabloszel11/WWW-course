@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script language = "javascript" type = "text/javascript">
+	function validateForm
+	{
+		var acc = document.forms["f"]["account"].value;
+		if(isNaN(acc) || acc < 10000000000000000000000000 || acc > 99999999999999999999999999)
+		{
+			alert("Account number has to consist of 26 digits");
+			return false;
+		}
+		var pesel = document.forms["f"]["pesel"].value;
+		if(isNaN(pesel) || pesel < 10000000000 || pesel > 99999999999)
+		{
+			alert("PESEL has to consist of 10 digits");
+			return false;
+		}
+		
+		
+	}	
+	</script>
+	<title>tytul</title>
+</head>
+<body>
+	<form name = "f" action = "#" onsubmit = "return validateForm()" method = "post">
+		Account number: <input type = "text" name = "account" /><br />
+		Pesel: <input type = "text" name = "pesel" /><br />
+		<input type = "submit" value = "Submit" />
+	</form>
+</body>
+</html>

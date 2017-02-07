@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>tytul</title>
+</head>
+<body>
+	<!--Jest to naturalne pozycjonowanie elementu, wynikające z kolejności wystąpienia w dokumencie HTML, na które nie ma wpływu nawet podanie odległości od innych elementów. -->
+	<!--Pozycjonowanie statyczne służy jedynie do nadpisywania wcześniej podanego pozycjonowania innego niż static. -->
+	<p style = "position: static; ">Treść akapitu</p>
+	<p style = "position: static; left: 30px ">Treść akapitu z dodatkową odległością</p>
+	<!--Pozycjonowanie względne odnosi się do miejsca wstawienia definicji i wykorzystuje podane odległości. Na przykład akapit mógłby mieć nadane pozycjonowanie: -->
+	<p style = "position: relative; left: 50px; top: 30px">Relatywne</p> 
+	<!--Co znaczy ze znajduje sie 30 px na lewo i 30 w dol od msc w ktorym normalnie by sie pojawil -->
+	<p style = "position: absolute; left: 50%; top: 50%">Absolutne</p>
+	<p style = "position: fixed; right: 10px; top: 10px">W tym samym miejscu okna przegladarki</p>
+</body>
+</html>

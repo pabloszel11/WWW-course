@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>tytul</title>
+	<link rel = "stylesheet" type = "text/css" href = "style1.css" />
+	<style type = "text/css">
+		p { color: green; }
+		div { color: blue ; }
+		h2 { color: red; }
+	</style>
+</head>
+<body>
+	<p>test1</p>
+	<div>test2</div>
+	<div><div style = 'color: yellow'>ZOLTE</div></div>
+	<!-- wszelkie importowane reguly maja nizsze pierwszenstwo, important nadaje im priorytet -->
+	<!-- zagniezdzenie w pow. divie powoduje powrot do koloru niebieskiego (ignorowany jest style =...) -->
+	<!-- chyba ze style = [...] jest najbardziej wewnetrzny -->
+</body>
+</html>
